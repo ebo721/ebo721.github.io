@@ -2,23 +2,37 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etax-MTA PDF Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Татварын Ерөнхий Газар - PDF Viewer</title>
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: #525659;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 100vh;
         }
         iframe {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             border: none;
         }
     </style>
 </head>
 <body>
-   <iframe src="getEnquiryTenderMin.pdf.pdf" type="application/pdf"></iframe>
+    <div class="pdf-container">
+        <iframe 
+            src="getEnquiryTenderMin.pdf.pdf#view=FitH" 
+            type="application/pdf">
+        </iframe>
+    </div>
 </body>
 </html>
