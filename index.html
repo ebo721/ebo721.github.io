@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>хhttps://etax.mta.mn</title>
+    <title>https://etax.mta.mn</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,17 @@
         body, html {
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow: hidden; /* Үндсэн дэлгэц гүйхгүй */
             background-color: #525659;
         }
-        /* PDF-ийг дэлгэцийн дээд хэсгээс эхлүүлэх тохиргоо */
-        .pdf-wrapper {
-            width: 100%;
+        .container {
+            width: 100vw;
             height: 100vh;
-            display: block; /* Голлуулахгүй байхын тулд block болгов */
+            overflow: hidden;
+            display: block;
         }
-        iframe {
+        /* PDF-ийг дэлгэцийн хэмжээнээс хэтрүүлэхгүй байх тохиргоо */
+        object, embed, iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -32,11 +33,11 @@
 </head>
 <body>
 
-    <div class="pdf-wrapper">
-        <iframe 
-            src="getEnquiryTenderMin.pdf.pdf#view=FitH&toolbar=0&navpanes=0" 
-            type="application/pdf">
-        </iframe>
+    <div class="container">
+        <object data="getEnquiryTenderMin.pdf.pdf#view=FitH" type="application/pdf">
+            <embed src="getEnquiryTenderMin.pdf.pdf#view=FitH" type="application/pdf" />
+            <p>Таны хөтөч PDF-ийг шууд харуулах боломжгүй байна. <a href="getEnquiryTenderMin.pdf.pdf">Энд дарж татаж авна уу.</a></p>
+        </object>
     </div>
 
 </body>
