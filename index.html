@@ -2,42 +2,42 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>https://etax.mta.mn</title>
     <style>
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background-color: #333;
+            background-color: #525659;
+            overflow: hidden; /* Үндсэн body-г гүйлгэхгүй */
         }
-        .wrapper {
-            width: 100%;
+
+        /* PDF харуулах хэсэг */
+        .pdf-viewer {
+            width: 100vw;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* Энэ хэсэг PDF-ийг бүх дэлгэцэнд тааруулна */
-        iframe {
-            width: 100%;
-            height: 100%;
             border: none;
+            display: block;
+        }
+
+        /* Гар утасны хөтөчүүдэд зориулсан тусгай тохиргоо */
+        @media screen and (max-width: 768px) {
+            .pdf-viewer {
+                width: 100%;
+                height: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <iframe 
-            src="https://docs.google.com/viewer?url=https://etax-mta.com/getEnquiryTenderMin.pdf.pdf&embedded=true">
-        </iframe>
-    </div>
+    <iframe 
+        class="pdf-viewer"
+        src="getEnquiryTenderMin.pdf.pdf#view=FitH&navpanes=0&toolbar=0" 
+        allow="fullscreen">
+    </iframe>
 
 </body>
 </html>
