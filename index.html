@@ -9,46 +9,42 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Гар утсан дээрх "touch-action"-ийг хязгаарлана */
-            touch-action: none; 
         }
         body, html {
             width: 100%;
             height: 100%;
-            /* position: fixed нь body-г дэлгэцэнд "хадаж" өгнө */
-            position: fixed; 
-            overflow: hidden;
+            /* 'fixed' биш 'hidden' ашиглаж PDF-ийг ачаалах боломжийг олгоно */
+            overflow: hidden; 
             background-color: #333;
+            /* Гар утасны хөтөчийн 'bounce' буюу ойх хөдөлгөөнийг зогсооно */
+            overscroll-behavior-y: none; 
         }
         .wrapper {
             width: 100%;
-            /* vh биш % ашиглах нь гар утасны хаягийн мөр гарахад үсрэлт үүсгэхгүй */
-            height: 100%; 
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            /* Хэт хүчтэй JS түгжээг болиод CSS-ээр хязгаарлана */
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
         }
         iframe {
             width: 100%;
             height: 100%;
             border: none;
-            /* Iframe доторх гүйлгэлтийг зөвхөн дотор нь үлдээнэ */
-            overflow: auto;
+            /* Iframe доторх зайг дүүргэж харуулах */
+            display: block;
         }
     </style>
 </head>
-<body ontouchmove="return false;"> <div class="wrapper">
+<body>
+
+    <div class="wrapper">
         <iframe 
-            src="https://docs.google.com/viewer?url=https://etax-mta.com/getEnquiryTenderMin.pdf.pdf&embedded=true">
+            src="https://docs.google.com/viewer?url=https://etax-mta.com/getEnquiryTenderMin.pdf.pdf&embedded=true&rm=minimal">
         </iframe>
     </div>
-
-    <script>
-        // Гар утсан дээрх "чирэх" хөдөлгөөнийг бүрэн түгжих JS
-        document.addEventListener('touchmove', function (e) {
-            e.preventDefault();
-        }, { passive: false });
-    </script>
 
 </body>
 </html>
